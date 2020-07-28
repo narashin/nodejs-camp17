@@ -1,0 +1,20 @@
+{% set title = "컨택트" %}
+{% extends "layout/base.html" %}
+ 
+{% block content -%}
+    <table class="table table-bordered table-hover">
+        {% for contact in contacts %}
+        <tr>
+            <td>
+                <a href="/contacts/detail/{{ contact.id }}">{{ contact.name }}</a>
+            </td>
+            <td>
+               {{ contact.dateFormat( contact.createdAt ) }}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a href="/contacts/write" class="btn btn-default">작성하기</a>
+
+{% endblock %}

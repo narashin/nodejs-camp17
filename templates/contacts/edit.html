@@ -1,0 +1,27 @@
+{% set title = "컨택트 수정" %}
+{% extends "layout/base.html" %}
+
+{% block content -%}
+    <table class="table table-bordered">
+        {% for contact in contacts %}
+        <tr>
+            <th>이름</th>
+            <td><input type="text" name="name" class="form-control" value={{ contact.name}}></td>
+        </tr>
+        <tr>
+            <th>이메일</th>
+            <td><input type="email" name="email" class="form-control" value={{ contact.email}}></td>
+        </tr>
+        <tr>
+            <th>내용</th>
+            <td><input type="text" name="content" class="form-control" value={{ contact.content}}></td>
+        </tr>
+    </table>
+    <form  method="post" action="/contacts/edit/{{ contact.id }}?_method=put">
+        <button type="submit" class="btn btn-primary">수정하기</button></form>
+    <form method="post" action="/contacts/delete/{{ contact.id }}?_method=delete" >
+        <button type="submit" class="btn btn-danger">삭제하기</button></form>
+    <a href="/contacts/detail/{{ contact.id }}" class="btn btn-default">뒤로가기</a>
+    {% endfor %}
+
+{% endblock %}

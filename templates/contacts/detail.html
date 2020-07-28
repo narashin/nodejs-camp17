@@ -1,0 +1,29 @@
+{% set title = "컨택트 디테일" %}
+{% extends "layout/base.html" %}
+ 
+{% block content -%}
+        <table class="table table-bordered">
+        {% for contact in contacts %}
+            <tr>
+                <th>이름</th>
+                <td>{{ contact.name }}</td>
+            </tr>
+            <tr>
+                <th>이메일</th>
+                <td>{{ contact.email }}</td>
+            </tr>
+            <tr>
+                <th>내용</th>
+                <td>{{ contact.content }}</td>
+            </tr>
+            <tr>
+                <th>일시</th>
+                <td>{{  contact.createdAt }}</td>
+            </tr>
+                <a href="/contacts/edit/{{ contact.id }}" class="btn btn-default">수정하기</a>
+            {% endfor %}
+        </table>
+        <a href="/contacts" class="btn btn-primary">뒤로가기</a>
+        
+
+{% endblock %}

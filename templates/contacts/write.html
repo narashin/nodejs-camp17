@@ -1,0 +1,24 @@
+{% set title = "컨택트" %}
+{% extends "layout/base.html" %}
+ 
+{% block content -%}
+    <form action="" method="post">
+        <table class="table table-bordered">
+            <tr>
+                <th>이름</th>
+                <td><input type="text" name="name" class="form-control"/></td>
+            </tr>
+            <tr>
+                <th>이메일</th>
+                <td><input type="email" name="email" class="form-control"/></td>
+            </tr>
+            <tr>
+                <th>내용</th>
+                <td><input type="text" name="content" class="form-control"/></td>
+            </tr>
+        </table>
+        <button class="btn btn-primary">작성하기</button>
+        <a href="/contacts" class="btn btn-primary">뒤로가기</a>
+    </form>
+
+{% endblock %}
